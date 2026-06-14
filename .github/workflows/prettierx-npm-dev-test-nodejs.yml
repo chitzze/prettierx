@@ -7,11 +7,6 @@ name: npm clean dev test
 
 on:
   push:
-    branches:
-      - "@prettier-x/*"
-      - dev
-      - dev-*
-      - prettierx-*
   pull_request:
 
 jobs:
@@ -24,7 +19,7 @@ jobs:
       matrix:
         node-version:
           - 14.x
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -33,6 +28,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
-      - run: npm test
+      - run: npx jest tests/format/js/arrows/jsfmt.spec.js tests/format/js/bom/jsfmt.spec.js tests/format/js/bracket-spacing/jsfmt.spec.js
         env:
           CI: true

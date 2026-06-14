@@ -1,0 +1,3 @@
+# CI replay marker for test/jest
+feature_branch: replay-62114a9d
+workflow: .github/workflows/prettierx-npm-dev-test-nodejs.yml
